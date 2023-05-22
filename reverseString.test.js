@@ -2,6 +2,14 @@
 
 const reverseString = require('./reverseString');
 
-it('works', () => {
-    expect(1).toBe(1)
+test('reverses single word', () => {
+    expect(reverseString("mulberry")).toBe("yrreblum");
+})
+
+test('reverses single capitalized word', () => {
+    expect(reverseString("Mulberry")).toBe("yrrebluM");
+})
+
+test('reverses capitalised sentence with punctuation', () => {
+    expect(reverseString("What is the meaning of life?")).toBe("?efil fo gninaem eht si tahW");
 })
