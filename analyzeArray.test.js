@@ -9,3 +9,5 @@ object == {
   max: 8,
   length: 6
 }; */
+
+const analyzeArray = require('./analyzeArray');
