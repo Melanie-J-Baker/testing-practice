@@ -9,3 +9,7 @@
 // If works as expected can be sure that your smaller helper functions are doing what they’re supposed to.
 
 const caesarCipher = require('./caesarCipher');
+
+it('works', () => {
+    expect(1).toBe(1)
+})
