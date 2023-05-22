@@ -10,6 +10,6 @@
 
 const caesarCipher = require('./caesarCipher');
 
-it('works', () => {
-    expect(1).toBe(1)
+test('works', () => {
+    expect(caesarCipher('hello', 2)).toBe('jgnnq');
 })
