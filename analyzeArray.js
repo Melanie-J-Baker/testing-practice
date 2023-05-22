@@ -10,8 +10,42 @@ object == {
   length: 6
 }; */
 
-const analyzeArray = () => {
+const analyzeArray = (array) => {
+  if (!isValid(array)) {
+    return "Not a valid array!"
+  } else {
+    return {
+      average: getAverage(array),
+      min: getMin(array),
+      max: getMax(array),
+      length: array.length,
+    }
+  }
+};
 
+const isValid = (array) => {
+  if (Array.isArray(array)) {
+    for (let item of array) {
+      if (typeof item !== 'number') {
+        return false;
+      }
+    }
+  } else {
+    return false;
+  }
+  return true;
 }
+
+const getAverage = (array) => {
+  return array.reduce((a, b) => (a += b)) / array.length;
+};
+
+const getMin = (array) => {
+  return Math.min(...array);
+};
+
+const getMax = (array) => {
+  return Math.max(...array);
+};
 
 module.exports = analyzeArray;
