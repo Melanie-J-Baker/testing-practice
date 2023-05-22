@@ -10,6 +10,26 @@
 
 const caesarCipher = require('./caesarCipher');
 
-test('works', () => {
+test('enciphers single word', () => {
     expect(caesarCipher('hello', 2)).toBe('jgnnq');
+})
+
+test('wraps correctly from z to a', () => {
+    expect(caesarCipher('pizza', 5)).toBe('uneef');
+})
+
+test('keeps the same case', () => {
+    expect(caesarCipher('PiZza', 5)).toBe('UnEef');
+})
+
+test('keeps the same case 2', () => {
+    expect(caesarCipher('PIZZA', 5)).toBe('UNEEF');
+})
+
+test('if not a string', () => {
+    expect(caesarCipher(5, 2)).toBe('Not a string!');
+})
+
+test('punctuation', () => {
+    expect(caesarCipher("Let's dance!", 3)).toBe("Ohw'v gdqfh!");
 })

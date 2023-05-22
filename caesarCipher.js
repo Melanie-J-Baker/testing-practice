@@ -9,16 +9,26 @@
 // If works as expected can be sure that your smaller helper functions are doing what they’re supposed to.
 
 const caesarCipher = (string, shift) => {
+    if (typeof string !== 'string') {
+        return 'Not a string!';
+    };
     let cipher = "";
-    const regexp = /[a-z]/;
+    const regexp = /[a-zA-Z]/;
     for (i = 0; i < string.length; i++) {
         if (regexp.test(string.charAt(i))) {
-            cipher += String.fromCharCode((string.charCodeAt(i) - 97 + shift) % 26 + 97);
+            if (string.charAt(i) === string.charAt(i).toLowerCase()) {
+                cipher += String.fromCharCode((string.charCodeAt(i) - 97 + shift) % 26 + 97);
+            } else {
+                let lower = string.toLowerCase().charCodeAt(i);
+                cipher += String.fromCharCode((lower - 97 + shift) % 26 + 97).toUpperCase();
+            }
         } else {
             cipher += string.charAt(i);
         }
     }
     return cipher;
 }
+
+caesarCipher('PiZza', 5)
 
 module.exports = caesarCipher;
